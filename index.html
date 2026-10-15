@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Button</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .reveal-text {
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            min-height: 3rem;
+            color: #f43f5e;
+            text-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .reveal-text.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Are you ready for the truth?</h1>
+        <button class="btn" id="jokeButton">Guess what?</button>
+        <div class="reveal-text" id="resultText"></div>
+    </div>
+
+    <script>
+        const button = document.getElementById('jokeButton');
+        const result = document.getElementById('resultText');
+
+        button.addEventListener('click', () => {
+            result.textContent = "Bukhari is a nerd! 🤓";
+            result.classList.add('show');
+            
+            // Optional: Fun scale effect on click
+            button.style.transform = "scale(0.95)";
+            setTimeout(() => {
+                button.style.transform = "none";
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
